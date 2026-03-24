@@ -41,13 +41,9 @@ const BLANK_SOURCE: MedicationSource = {
 
 export function ReconciliationPanel() {
   const [age, setAge] = useState("");
-  const [conditions, setConditions] = useState("Type 2 Diabetes, Hypertension");
-  const [labs, setLabs] = useState("eGFR: 45");
-  const [sources, setSources] = useState<MedicationSource[]>([
-    { system: "Hospital EHR", medication: "Metformin 1000mg twice daily", last_updated: "2024-10-15", source_reliability: "high" },
-    { system: "Primary Care", medication: "Metformin 500mg twice daily", last_updated: "2025-01-20", source_reliability: "high" },
-    { system: "Pharmacy", medication: "Metformin 1000mg daily", last_updated: "2025-01-25", source_reliability: "medium" },
-  ]);
+  const [conditions, setConditions] = useState("");
+  const [labs, setLabs] = useState("");
+  const [sources, setSources] = useState<MedicationSource[]>([{ ...BLANK_SOURCE }]);
 
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);

@@ -39,20 +39,20 @@ const BREAKDOWN_LABELS: Record<string, string> = {
 
 export function DataQualityPanel() {
   // Demographics
-  const [name, setName] = useState("John Doe");
-  const [dob, setDob] = useState("1955-03-15");
-  const [gender, setGender] = useState("M");
+  const [name, setName] = useState("");
+  const [dob, setDob] = useState("");
+  const [gender, setGender] = useState("");
 
   // Clinical fields (one per line)
-  const [medications, setMedications] = useState("Metformin 500mg\nLisinopril 10mg");
+  const [medications, setMedications] = useState("");
   const [allergies, setAllergies] = useState("");
-  const [conditions, setConditions] = useState("Type 2 Diabetes");
+  const [conditions, setConditions] = useState("");
 
   // Vitals
-  const [bloodPressure, setBloodPressure] = useState("340/180");
-  const [heartRate, setHeartRate] = useState("72");
+  const [bloodPressure, setBloodPressure] = useState("");
+  const [heartRate, setHeartRate] = useState("");
 
-  const [lastUpdated, setLastUpdated] = useState("2024-06-15");
+  const [lastUpdated, setLastUpdated] = useState("");
 
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
