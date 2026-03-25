@@ -143,6 +143,9 @@ celerybeat.pid
 # Node / frontend build
 node_modules/
 frontend/dist/
+
+# Docker
+.dockerignore
 env/
 venv/
 ENV/

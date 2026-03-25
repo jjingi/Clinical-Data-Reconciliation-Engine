@@ -1,0 +1,34 @@
+{
+  "_description": "Real example using Synthetic MIMIC-III patient 1 (Lisinopril prescriptions). Input built from actual EHR records; output is a live GPT response.",
+  "request": {
+    "patient_context": {
+      "age": 60,
+      "conditions": ["Hypertension", "Type 2 Diabetes"],
+      "recent_labs": {}
+    },
+    "sources": [
+      {
+        "system": "Hospital EHR",
+        "medication": "Lisinopril 20MG TAB PO",
+        "source_reliability": "high",
+        "last_updated": "2103-06-07"
+      },
+      {
+        "system": "Primary Care",
+        "medication": "Lisinopril 20MG TAB PO",
+        "source_reliability": "high",
+        "last_updated": "2103-06-07"
+      }
+    ]
+  },
+  "response": {
+    "reconciled_medication": "Lisinopril 20 mg by mouth once daily",
+    "confidence_score": 0.99,
+    "reasoning": "Both available sources are high reliability and updated on the same date (2103-06-07): the Hospital EHR and Primary Care record each list lisinopril 20 mg tablet PO. There is complete agreement across sources, which strongly supports this regimen as current. Clinically, lisinopril is appropriate for a 60-year-old patient with hypertension and type 2 diabetes, as ACE inhibitors are commonly used for blood pressure control and renal protection in diabetes. No recent labs are provided, so there is no evidence of hyperkalemia or renal dysfunction that would alter this choice.",
+    "recommended_actions": [
+      "Continue lisinopril 20 mg PO daily if the patient is tolerating therapy.",
+      "Obtain or review serum creatinine and potassium at the next opportunity to monitor ACE inhibitor safety."
+    ],
+    "clinical_safety_check": "PASSED"
+  }
+}

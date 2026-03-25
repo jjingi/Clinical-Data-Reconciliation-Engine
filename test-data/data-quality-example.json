@@ -1,0 +1,74 @@
+{
+  "_description": "Real example using Synthetic MIMIC-III patient 1. Medications and conditions extracted from actual MIMIC-III prescriptions and diagnoses_icd tables; output is a live GPT response.",
+  "request": {
+    "demographics": {
+      "name": "MIMIC Synthetic Patient 1",
+      "source": "Synthetic MIMIC-III"
+    },
+    "medications": [
+      "Milk of Magnesia 30mL UD Cup PO",
+      "Hydralazine HCl 20mg/mL Vial IV",
+      "Sertraline 50mg Tablet PO",
+      "Pantoprazole Sodium 40mg Vial IV",
+      "Ranitidine 150mg Tablet PO",
+      "Calcium Gluconate 1g/10mL Vial IV",
+      "Hydromorphone 2mg/mL Syringe SC",
+      "Lisinopril 20MG TAB PO",
+      "Heparin 5000U/ML VIAL SC",
+      "Pneumococcal Vac Polyvalent 25mcg/0.5mL Vial IM",
+      "HYDROmorphone (Dilaudid) 12.5mg/50mL Syringe IVPCA",
+      "Hydromorphone 2mg Tablet PO",
+      "Oxycodone-Acetaminophen 5mg/325mg Tablet PO",
+      "D5W 250ML BAG IV DRIP",
+      "Ceftriaxone 1GM FROZ BAG IV",
+      "Haloperidol 5mg/mL Vial IV",
+      "Docusate Sodium 100mg Cap PO",
+      "NIFEdipine CR 90 mg CR Tab PO",
+      "Acetaminophen 325mg Tablet PO",
+      "Potassium Chloride 20mEq/50ml Premix IV",
+      "Nicotine Patch 21mg/24Hr Patch TD",
+      "Amoxicillin-Clavulanic Acid 500mg Tab PO",
+      "Verapamil 120 mg Tab PO"
+    ],
+    "allergies": [],
+    "conditions": ["27802", "99681", "79902", "86121", "30593", "V4589", "25082", "19889", "36201"],
+    "vital_signs": {},
+    "last_updated": "2103-06-07"
+  },
+  "response": {
+    "overall_score": 39,
+    "breakdown": {
+      "completeness": 28,
+      "accuracy": 52,
+      "timeliness": 10,
+      "clinical_plausibility": 85
+    },
+    "issues_detected": [
+      {
+        "field": "allergies",
+        "issue": "Allergy list is empty; absence may indicate missing critical safety information.",
+        "severity": "medium"
+      },
+      {
+        "field": "vital_signs",
+        "issue": "No vital signs are present, limiting clinical assessment and data completeness.",
+        "severity": "medium"
+      },
+      {
+        "field": "conditions",
+        "issue": "Conditions are provided only as codes without descriptions, reducing interpretability and completeness.",
+        "severity": "low"
+      },
+      {
+        "field": "last_updated",
+        "issue": "Record timestamp is far in the future relative to current date, suggesting stale or invalid temporal data.",
+        "severity": "medium"
+      },
+      {
+        "field": "medications",
+        "issue": "Medication list contains potentially duplicative opioid entries (hydromorphone in multiple formulations/routes), which may be valid but warrants reconciliation.",
+        "severity": "low"
+      }
+    ]
+  }
+}

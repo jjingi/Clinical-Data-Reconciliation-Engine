@@ -1,0 +1,20 @@
+services:
+  backend:
+    build: ./backend
+    ports:
+      - "8000:8000"
+    env_file:
+      - ./backend/.env
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: ./frontend
+      args:
+        # Must match API_KEY in backend/.env
+        VITE_API_KEY: ${VITE_API_KEY}
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+    restart: unless-stopped
